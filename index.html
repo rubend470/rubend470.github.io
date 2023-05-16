@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://app.deepar.ai/js-sdk/latest/deepar-sdk.js"></script>
+        <script>
+            window.addEventListener('load', function () {
+                // Crea una instancia de DeepAR
+                var deepAR = DeepAR({
+                    element: document.getElementById('deepar-canvas'),
+                    /* Tu APP Key */
+                    apiKey: 'c3edb1fa41e⋯',
+                    /* Tu secret Key */
+                    secretKey: '1196218edad27d1d37a5d99d5d75a73b5c89f986fadadcb5ad7683a84f9f90fd0533fea221a02acf'
+                });
+                deepAR.on('load', function () {
+                    console.log('DeepAR loaded');
+                });
+                // Carga los filtros disponibles
+                deepAR.load('https://app.deepar.ai/clientsdk/filters', function () {
+                    console.log('Filters loaded');
+                });
+                // Comienza la cámara y el reconocimiento facial
+                deepAR.startCamera();
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="deepar-canvas" width="300" height="500"></canvas>
+    </body>
+</html>
